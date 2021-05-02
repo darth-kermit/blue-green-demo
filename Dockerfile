@@ -1,5 +1,8 @@
-FROM alpine:latest
-ENV REDIS_ADDR test-redis-001.1uamxk.0001.use2.cache.amazonaws.com
-COPY . /app
-CMD pip install redis bottle gunicorn
-CMD python ./app/th3-server.py
+FROM python:3.8
+COPY ./app /app
+WORKDIR /app/
+EXPOSE 8080
+RUN pip install redis bottle gunicorn
+RUN chmod +x entrypoint.sh
+#CMD ["python /app/th3-server.py"]
+ENTRYPOINT ["/app/entrypoint.sh"]
