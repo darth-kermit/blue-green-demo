@@ -1,4 +1,4 @@
-# Tristan Oetker - Blizzard Blue/Green Demo
+# Tristan Oetker - Blue/Green Demo
 
 ## Architecture Diagram
 
