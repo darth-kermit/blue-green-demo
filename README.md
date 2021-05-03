@@ -30,7 +30,13 @@ task definition which will trigger the blue/green deployment.
 
 
 
+
 ### v Capture the output of your test client to show that no requests failed and the version being returned from the sample application changed
+
+After updating the task definition on the ECS service, I start my script which begins curling the application endpoint. 
+Once the deployment finishes I can look through the output of the text file and find the first call which returns
+the version as "0.0.2". Finally, I can check the call before it and make sure it correctly returned version "0.0.1"
+and not any errors. 
 
 ## Final System Architecture
 
