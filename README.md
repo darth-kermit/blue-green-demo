@@ -1,8 +1,8 @@
 # Tristan Oetker - Blizzard Blue/Green Demo
 
-## System Architecture
+## Architecture Diagram
 
-![Placeholder Image](/assets/images/placeholder.jpeg)
+![Architecture Diagram](/assets/images/diagram.jpeg)
 
 ## Project Overview
 ### i.            Start v1 of the application
