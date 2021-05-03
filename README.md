@@ -44,4 +44,22 @@ and not any errors.
 
 ## Future Work
 
-## Project 
+- Finish creating a full deployment pipeline using a Github, CodePipeline, CodeBuild, and CodeDeploy.
+  
+  The deployment pipeline would trigger on a code change in the specified git branch. The pipeline would then
+  take the application code and build a new docker image with CodeBuild and push it to ECR. It would then pass the
+  new image tag as build artifact and updat the task definition configuration automatically using CodeDeploy. This 
+  would then trigger the ECS blue/green deployment automatically, removing the manual steps of pushing the application
+  image and updating the task definition accordingly.
+
+- Create "one-click" deployment of pipeline infrastructure using Terraform or Cloudformation IaC. Given more time, I
+  would write infrastructure as code to stand up all of the resources in a repeatable and automated way, so that the
+  blue/green deployment project can be easily adopted by anyone with a free-tier AWS account.
+
+- Further secure the AWS resources. I need to go back and ensure least privilege of all AWS resources that were deployed.  
+
+- 
+
+- Replace line 5 in my Dockefile with better package management for the application. I would prefer to have a 
+  requirements.txt file with the specific packages and versions used by the sample app, instead of hardcoding the
+  pip install in the Dockerfile.
