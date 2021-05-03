@@ -10,7 +10,7 @@ do
     echo "" >> test_client_results/deployment-results.txt 
     echo "------------------------------------------------" >> test_client_results/deployment-results.txt 
     wait_period=$(($wait_period+1))
-    if [ $wait_period -gt 300 ];then
+    if [ $wait_period -gt 3000 ];then
        echo "The script successfully ran for 5 minutes, exiting now.."
        break
     fi
