@@ -1,5 +1,9 @@
 # Tristan Oetker - Blizzard Blue/Green Demo
 
+## System Architecture
+
+![Placeholder Image](/assets/images/placeholder.jpeg)
+
 ## Project Overview
 ### i.            Start v1 of the application
 
@@ -38,8 +42,6 @@ Once the deployment finishes I can look through the output of the text file and 
 the version as "0.0.2". Finally, I can check the call before it and make sure it correctly returned version "0.0.1"
 and not any errors. 
 
-## Final System Architecture
-
 ## Project Demo Screencast with AWS Components
 
 ## Future Work
@@ -57,8 +59,6 @@ and not any errors.
   blue/green deployment project can be easily adopted by anyone with a free-tier AWS account.
 
 - Further secure the AWS resources. I need to go back and ensure least privilege of all AWS resources that were deployed.  
-
-- 
 
 - Replace line 5 in my Dockefile with better package management for the application. I would prefer to have a 
   requirements.txt file with the specific packages and versions used by the sample app, instead of hardcoding the
