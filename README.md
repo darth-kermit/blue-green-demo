@@ -32,15 +32,29 @@ task definition which will trigger the blue/green deployment.
 
 ### iv.            Utilize your deployment strategy to execute a blue/green deploy of test application v2
 
+Now I need to turn my running sample app into an actual service so that I can conduct the blue/green deployment of 
+version 0.0.2. I created an Application Loadbalancer, listener, and a placeholder target group. 
+of the running tasks. Next I created an ECS service and configured it to use the task definition from objective i, 
+and added new target groups to the loadbalancer for the blue/green deployment. I set the number of running tasks for 
+the service to 1. I then verified that the service was up and running and that I could reach it successfully at the 
+loadbalancer url/version endpoint. This service is running in my "blue" target group. 
 
+I also configure the ECS service to use AWS CodeDeploy to perform a blue/green deployment when the service is updated.
+I specify that I want an all-at-once deployment, instead of a canary, so that my script can see the clear shift from
+version 0.0.1 to 0.0.2. 
 
+Finally I trigger my blue/green deployment by updating the task definition used by the service to one which uses
+the image for application version 2. CodeDeploy then begins spinning up a new task using version 2, adds it to my 
+"green" target group, performs the healthcheck, then performs the zero downtime cutover.
+After traffic is routed to my second target group, it begins to spin down the "blue" target group and the "green"
+becomes the new "blue."
 
 ### v Capture the output of your test client to show that no requests failed and the version being returned from the sample application changed
 
-After updating the task definition on the ECS service, I start my script which begins curling the application endpoint. 
+While the blue-green deployment is occuring on my ECS service, I start my script which begins curling the application endpoint. 
 Once the deployment finishes I can look through the output of the text file and find the first call which returns
-the version as "0.0.2". Finally, I can check the call before it and make sure it correctly returned version "0.0.1"
-and not any errors. 
+the version as "0.0.2". Then, I can check the call before it and verify that it correctly returned version "0.0.1" without
+error during the deployment.
 
 ## Project Demo Screencast with AWS Components
 
